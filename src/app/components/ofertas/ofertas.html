@@ -1,1 +1,26 @@
-<p>ofertas works!</p>
+<section id="ofertas" class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-2">🔥 Ofertas y promociones</h2>
+        <div class="alert alert-warning text-center" role="alert">
+            Promociones vigentes por tiempo limitado. ¡Aprovecha antes de que se agoten!
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            @for (oferta of listaOfertas; track oferta.id) {
+            <div class="col">
+                <div class="card h-100 border-danger shadow-sm hover-card position-relative">
+                    <span class="badge bg-danger position-absolute top-0 end-0 m-2 fs-6">-{{oferta.descuento}}%</span>
+                    <img [src]="oferta.imagen" class="card-img-top" [alt]="oferta.nombre">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{oferta.nombre}}</h5>
+                        <p class="mb-0">
+                            <span class="text-decoration-line-through text-muted me-2">S/ {{oferta.precio}}</span>
+                            <span class="fs-4 fw-bold text-danger">S/ {{precioFinal(oferta)}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>

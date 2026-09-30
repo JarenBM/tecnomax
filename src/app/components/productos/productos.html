@@ -1,1 +1,38 @@
-<p>productos works!</p>
+<section id="productos" class="container py-5">
+    <h2 class="text-center fw-bold mb-2">Nuestros productos</h2>
+    <p class="text-center text-muted mb-4">Filtra por categoría y encuentra lo que necesitas</p>
+
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+        @for (categoria of categorias; track $index) {
+        <button class="btn" [class.btn-primary]="categoriaActiva() === categoria"
+            [class.btn-outline-primary]="categoriaActiva() !== categoria" (click)="filtrar(categoria)">
+            {{categoria}}
+        </button>
+        }
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+        @for (producto of listaProductos(); track producto.id) {
+        <div class="col">
+            <div class="card h-100 shadow-sm hover-card position-relative">
+                @if (producto.enOferta) {
+                <span class="badge bg-danger position-absolute top-0 end-0 m-2">-{{producto.descuento}}%</span>
+                }
+                <img [src]="producto.imagen" class="card-img-top" [alt]="producto.nombre">
+                <div class="card-body d-flex flex-column">
+                    <span class="badge bg-secondary align-self-start mb-2">{{producto.categoria}}</span>
+                    <h5 class="card-title">{{producto.nombre}}</h5>
+                    <div class="mt-auto">
+                        @if (producto.enOferta) {
+                        <span class="text-decoration-line-through text-muted me-2">S/ {{producto.precio}}</span>
+                        <span class="fs-5 fw-bold text-success">S/ {{precioFinal(producto)}}</span>
+                        } @else {
+                        <span class="fs-5 fw-bold">S/ {{producto.precio}}</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</section>

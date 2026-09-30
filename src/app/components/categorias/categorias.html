@@ -1,1 +1,18 @@
-<p>categorias works!</p>
+<section id="categorias" class="container py-5">
+    <h2 class="text-center fw-bold mb-4">Categorías</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+        @for (categoria of listaCategorias; track $index) {
+        <div class="col">
+            <a href="#productos" class="text-decoration-none text-dark">
+                <div class="card h-100 text-center shadow-sm hover-card">
+                    <div class="card-body">
+                        <div class="display-3">{{categoria.icono}}</div>
+                        <h5 class="card-title mt-2">{{categoria.nombre}}</h5>
+                        <p class="card-text text-muted">{{categoria.descripcion}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        }
+    </div>
+</section>

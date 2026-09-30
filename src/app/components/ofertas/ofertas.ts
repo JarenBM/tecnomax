@@ -1,9 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Producto } from '../../Interface/producto';
+import { ProductoService } from '../../services/producto.service';
 
 @Component({
-  imports: [],
   selector: 'app-ofertas',
   styleUrl: './ofertas.css',
   templateUrl: './ofertas.html',
 })
-export class Ofertas {}
+export class Ofertas {
+  private productoService = inject(ProductoService) //inyección de dependencias
+
+  listaOfertas:Producto[]=[]
+
+  constructor(){
+    this.mostrarOfertas()
+  }
+
+  mostrarOfertas(){
+    this.listaOfertas=this.productoService.mostrarOfertas()
+  }
+
+  precioFinal(producto:Producto){
+    return this.productoService.precioFinal(producto)
+  }
+
+}
