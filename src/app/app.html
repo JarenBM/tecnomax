@@ -1,13 +1,35 @@
 <app-navbar></app-navbar>
 
-<header id="inicio" class="hero text-white text-center">
+<header id="inicio" class="hero">
     <div class="container py-5">
-        <h1 class="display-3 fw-bold">TecnoMax</h1>
-        <p class="lead">Tecnología de última generación al mejor precio</p>
-        <a href="#productos" class="btn btn-warning btn-lg me-2">Ver productos</a>
-        <a href="#ofertas" class="btn btn-outline-light btn-lg">Ver ofertas</a>
+        <div class="row align-items-center g-5 py-lg-4">
+            <div class="col-lg-7">
+                <span class="sticker">⚡ Nueva temporada tech</span>
+                <h1 class="display-2 mt-4">Tu próxima <span class="resaltado">tecnología</span> empieza aquí</h1>
+                <p class="lead mt-3">Celulares, laptops, accesorios y gadgets inteligentes con precios que sí se sienten.</p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a href="#productos" class="btn btn-warning btn-lg">Ver productos</a>
+                    <a href="#ofertas" class="btn btn-light btn-lg">Ver ofertas 🔥</a>
+                </div>
+            </div>
+            <div class="col-lg-5 d-none d-lg-block">
+                <div class="hero-tiles">
+                    <div class="tile t1">📱</div>
+                    <div class="tile t2">💻</div>
+                    <div class="tile t3">🎧</div>
+                    <div class="tile t4">⌚</div>
+                </div>
+            </div>
+        </div>
     </div>
 </header>
+
+<div class="marquee">
+    <div class="marquee-track">
+        <span>Envío rápido ✦</span><span>Garantía oficial ✦</span><span>Ofertas cada semana ✦</span><span>Pago seguro ✦</span><span>Soporte técnico ✦</span><span>Las mejores marcas ✦</span>
+        <span>Envío rápido ✦</span><span>Garantía oficial ✦</span><span>Ofertas cada semana ✦</span><span>Pago seguro ✦</span><span>Soporte técnico ✦</span><span>Las mejores marcas ✦</span>
+    </div>
+</div>
 
 <app-categorias></app-categorias>
 <app-productos></app-productos>
